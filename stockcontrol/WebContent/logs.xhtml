@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Projeto WEB2!</title>
+</h:head>
+<h:body>
+
+	<h2 align="center">Controle de Estoque</h2>
+
+	------------------------------------------
+	<h4>Lista de LOGS::</h4>
+	
+	<p:dataTable var="teste" value="#{logBean.all}">
+		<p:column headerText="Id">
+			<h:outputText value="#{teste.id}" />
+		</p:column>
+
+		<p:column headerText="Nome">
+			<h:outputText value="#{teste.nome}" />
+		</p:column>
+
+		<p:column headerText="Fornecedor">
+			<h:outputText value="#{teste.cnpjFornecedor}" />
+		</p:column>
+
+		<p:column headerText="Data">
+			<h:outputText value="#{teste.data}" />
+		</p:column>
+		
+		<p:column headerText="Ação">
+			<h:outputText value="#{teste.acao}" />
+		</p:column>
+
+		<p:column headerText="Quantidade">
+			<h:outputText value="#{teste.qtd}" />
+		</p:column>
+	</p:dataTable>
+	------------------------------------------
+	
+	
+</h:body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Projeto WEB2!</title>
+</h:head>
+<h:body>
+
+	<h2 align="center">Controle de Estoque</h2>
+	
+	<h:outputText value="#{hello.message}" />
+	<br/>
+	<h:outputText value="#{hello.horario}" />
+	<br/>
+	<h:outputText value="#{produtoBean.produto.nome}" />
+	<br/>
+	<p:panel header="Teste" style="width:50%">
+			<p:button value="Atualizar Hora"/>
+	</p:panel>
+	<br/>
+	-----------------------------------------
+	<a href="logs.jsf">LOGS</a>
+	-----------------------------------------
+	-----------------------------------------
+	<a href="products.jsf">PRODUTOS</a>
+	-----------------------------------------
+	<h4>Adicionar Produto:</h4>
+	<h:messages />
+	<h:form>
+		Nome:
+		<h:inputText value="#{produtoBean.produto.nome}"/>
+		<br/>
+		Descrição:
+		<h:inputTextarea value="#{produtoBean.produto.descricao}"/>
+		<br/>
+		Quantidade:
+		<h:inputText value="#{produtoBean.produto.qtd}"/>
+		<br/>
+		CNPJ do fornecedor:
+		<h:inputText value="#{produtoBean.cnpj}">
+			<f:validator validatorId="br.com.helpers.CNPJValidator"/>
+		</h:inputText>
+		Digite apenas números
+		<br/>
+		<h:commandButton action="#{produtoBean.saveProduto}" value="Adicionar"/>
+	</h:form>
+	<h:messages />
+	------------------------------------------
+	<h4>Procurar Produto por nome:</h4>
+	<h:form>
+		<h:inputText value="#{produtoBean.produto.nome}"/>
+		<h:commandButton action="#{produtoBean.procurarProduto}" value="Buscar"/>
+		<br/>
+		Nome:
+		<h:outputText value="#{produtoBean.resultado.nome}"/>
+		<br/>
+		Descrição:
+		<h:outputText value="#{produtoBean.resultado.descricao}"/>
+		<br/>
+		Quantidade:
+		<h:outputText value="#{produtoBean.resultado.qtd}"/>
+	</h:form>
+	------------------------------------------
+	
+	
+</h:body>
+</html>
